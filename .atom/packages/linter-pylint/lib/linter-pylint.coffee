@@ -1,21 +1,29 @@
-{exec, child} = require 'child_process'
+{exec} = require 'child_process'
 linterPath = atom.packages.getLoadedPackage("linter").path
 Linter = require "#{linterPath}/lib/linter"
+{log, warn} = require "#{linterPath}/lib/utils"
 
 
 class LinterPylint extends Linter
   @enabled = false # false until executable checked
   @syntax: 'source.python' # fits all *.py-files
-  cmd: "pylint --msg-template='{line},{column},{category},{msg}' --reports=n"
+  cmd: ['pylint'
+        "--msg-template='{line},{column},{category},{msg_id}:{msg}'"
+        '--reports=n']
 
   linterName: 'pylint'
 
-  regex: '^(?<line>\\d+),(?<col>\\d+),((?<error>error)|(?<warning>warning)),(?<message>.*)$'
+  regex: '^(?<line>\\d+),(?<col>\\d+),\
+          ((?<error>error)|(?<warning>warning)),\
+          (?<msg_id>\\w\\d+):(?<message>.*)$'
   regexFlags: 'm'
 
   constructor: (@editor) ->
+    super @editor  # sets @cwd to the dirname of the current file
+    # if we're in a project, use that path instead
+    @cwd = atom.project.path ? @cwd
     exec 'pylint --version', cwd: @cwd, @executionCheckHandler
-    console.log 'Linter-Pylint: initialization completed'
+    log 'Linter-Pylint: initialization completed'
 
   # Private: handles the initial 'version' call, extracts the version and
   # enables the linter
@@ -27,16 +35,19 @@ class LinterPylint extends Linter
       result += 'stderr: ' + stderr if stderr.length > 0
       console.error "Linter-Pylint: 'pylint' was not executable: " + result
     else
-      console.log "Linter-Pylint: found pylint " + versionRegEx.exec(stdout)[1]
+      log "Linter-Pylint: found pylint " + versionRegEx.exec(stdout)[1]
       @enabled = true # everything is fine, the linter is ready to work
 
   lintFile: (filePath, callback) =>
-    if @enabled # disabled if the lint-executable is not reachable - see initialization
-      command = @getCmdAndArgs(filePath).command +
-        ' ' +
-        @getCmdAndArgs(filePath).args.join(' ')
+    if @enabled
+      # Only lint when pylint is present
+      super filePath, callback
+    else
+      # Otherwise it's important that we call @processMessage to avoid leaking
+      # the temporary file.
+      @processMessage "", callback
 
-      exec command, {cwd: @cwd}, (error, stdout, stderr) =>
-        @processMessage(stdout, callback)
+  formatMessage: (match) ->
+    "#{match.msg_id}: #{match.message}"
 
 module.exports = LinterPylint

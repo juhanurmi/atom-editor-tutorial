@@ -9,7 +9,7 @@ class StatusBarView extends View
 
   @content: ->
     @div class: 'tool-panel panel-bottom padded text-smaller', =>
-      @dl class: 'linter-statusbar text-smaller', outlet: 'violations',
+      @dl class: 'linter-statusbar', outlet: 'violations',
 
   show: ->
     super
@@ -69,12 +69,16 @@ class StatusBarView extends View
     # No more errors on the file, return
     return unless messages.length > 0
 
-    if not paneItem
-      paneItem = atom.workspaceView.getActivePaneItem()
-    currentLine = undefined
-    if position = paneItem?.getCursorBufferPosition?()
-      currentLine = position.row + 1
+    # Easy fix for https://github.com/AtomLinter/Linter/issues/99
+    try
+      if not paneItem
+        paneItem = atom.workspaceView.getActivePaneItem()
+      currentLine = undefined
+      if position = paneItem?.getCursorBufferPosition?()
+        currentLine = position.row + 1
+    catch e
+      error = e
 
-    @computeMessages messages, position, currentLine, limitOnErrorRange
+    @computeMessages messages, position, currentLine, limitOnErrorRange unless error
 
 module.exports = StatusBarView

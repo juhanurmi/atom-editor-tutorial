@@ -1,4 +1,3 @@
-Linter = require './linter'
 LinterView = require './linter-view'
 StatusBarView = require './statusbar-view'
 
@@ -10,11 +9,12 @@ class LinterInitializer
     lintOnSave: true
     lintOnChange: true
     lintOnEditorFocus: true
-    showHightlighting: true
+    showHighlighting: true
     showGutters: true
     showErrorInStatusBar: true
     lintOnChangeInterval: 1000
     showStatusBarWhenCursorIsInErrorRange: false
+    lintDebug: false
 
   # Public: Activate the plugin setting up StatusBarView and dicovering linters
   activate: ->
