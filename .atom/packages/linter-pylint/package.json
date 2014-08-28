@@ -1,0 +1,29 @@
+{
+  "name": "linter-pylint",
+  "linter-package": true,
+  "activationEvents": [],
+  "main": "./lib/init",
+  "version": "0.1.2",
+  "description": "Lint python on the fly, using pylint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtomLinter/linter-pylint"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# linter-pylint\n\nThis package will lint your opened Python-files in Atom, using [pylint](http://www.pylint.org/).\n\n## Installation\n\n* Install [pylint](http://www.pylint.org/#install).\n* `$ apm install linter` (if you don't have [AtomLinter/Linter](https://github.com/AtomLinter/Linter) installed).\n* `$ apm install linter-pylint`\n\n## Settings\nLinter-pylint offers currently no settings.\n\n## Other available linters\nThere are other linters available - take a look at the linters [mainpage](https://github.com/AtomLinter/Linter).\n\n## Changelog\n\n### 0.1.1\n - fix 'has no method getCmd' bug [#4](https://github.com/AtomLinter/linter-pylint#4)\n\n### 0.1.0\n\n - Implemented first version of 'linter-pylint'\n - Added support for Errors and Warnings, \"Refactor\", \"Convention and \"Fatal\"-messages are ignored due to missing display-capabilities.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-pylint/issues"
+  },
+  "homepage": "https://github.com/AtomLinter/linter-pylint",
+  "_id": "linter-pylint@0.1.2",
+  "dist": {
+    "shasum": "91281b17a2eeb63149302eedc520e6ca535f8351"
+  },
+  "_resolved": "/tmp/d-114526-7695-10a59xm/package.tgz",
+  "_from": "/tmp/d-114526-7695-10a59xm/package.tgz"
+}

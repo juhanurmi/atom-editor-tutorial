@@ -1,0 +1,20 @@
+'editor':
+  'fontSize': 17
+  'tabLength': 4
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'atom-dark-syntax'
+  ]
+'metrics': false
+'exception-reporting':
+  'userId': '40d7fba7-0388-b419-4265-6b0adfeb74bb'
+'welcome':
+  'showOnStartup': false
+'python-isort':
+  'isortPath': '/usr/local/bin/isort'
+  'sortOnSave': true
+'django-templates':
+  'defaultToDjangoTemplatesForFilePathsContaining': 'templates'
+'tree-view':
+  'hideVcsIgnoredFiles': true

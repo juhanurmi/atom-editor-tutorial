@@ -1,0 +1,27 @@
+{
+  "name": "python-isort",
+  "main": "./lib/index",
+  "version": "0.0.5",
+  "description": "Organize Python Imports using Isort",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bh/atom-python-isort"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "## Python Isort for Atom editor\n\nUses [Isort](https://github.com/timothycrosley/isort) to organizing Python imports.\n\n![Screenshot](https://raw.githubusercontent.com/bh/atom-python-isort/master/example_sorting.gif)\n\n### Install\n\nMake sure you have `Isort` installed and the correct path to binary was set in the package config.\n\n### Keymap\n\nCurrently, there are two following commands:\n\n* `python-isort:sortImports` - for sorting imports\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/bh/atom-python-isort/issues"
+  },
+  "homepage": "https://github.com/bh/atom-python-isort",
+  "_id": "python-isort@0.0.5",
+  "dist": {
+    "shasum": "dfb46e8863ce0f5194abb776478b57bdf027cd48"
+  },
+  "_resolved": "/tmp/d-114526-5191-1yv44a7/package.tgz",
+  "_from": "/tmp/d-114526-5191-1yv44a7/package.tgz"
+}

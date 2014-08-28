@@ -1,0 +1,27 @@
+{
+  "name": "markdown-format",
+  "main": "./lib/markdown-format",
+  "version": "2.2.0",
+  "description": "Formats your Markdown text on save.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shurcooL/atom-markdown-format"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "Markdown Format Package\n=======================\n\nFormats your Markdown text (to look like the rendered HTML) on save.\n\n![Markdown Format Demo](https://github.com/shurcooL/atom-markdown-format/blob/master/Demo.gif?raw=true)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/shurcooL/atom-markdown-format/issues"
+  },
+  "homepage": "https://github.com/shurcooL/atom-markdown-format",
+  "_id": "markdown-format@2.2.0",
+  "dist": {
+    "shasum": "ee83cc263ee3a44c9928ece79c6c07b5613e13b7"
+  },
+  "_resolved": "/tmp/d-114526-15944-vrp4ff/package.tgz",
+  "_from": "/tmp/d-114526-15944-vrp4ff/package.tgz"
+}
