@@ -1,0 +1,7 @@
+[9834:0828/140431:ERROR:browser_main_loop.cc(163)] Running without the SUID sandbox! See https://code.google.com/p/chromium/wiki/LinuxSUIDSandboxDevelopment for more information on developing with the sandbox on.
+App load time: 398ms
+[9868:0828/140432:INFO:renderer_main.cc(227)] Renderer process started
+[9834:0828/140433:INFO:CONSOLE(17)] "warning: system calls not available, see https://github.com/gopherjs/gopherjs/blob/master/doc/syscalls.md", source: /home/juha/.atom/packages/markdown-format/lib/markdownfmt.js (17)
+[9834:0828/140434:INFO:CONSOLE(4)] "Linter-Pylint: package loaded, ready to get initialized by AtomLinter.", source: /home/juha/.atom/packages/linter-pylint/lib/init.coffee (4)
+[9834:0828/140434:INFO:CONSOLE(18)] "Window load time: 1464ms", source: /opt/atom/resources/app/src/window-bootstrap.js (18)
+[9834:0828/140513:ERROR:raw_channel_posix.cc(139)] recvmsg: Connection reset by peer
