@@ -1,0 +1,76 @@
+<!doctype html>
+<html><head>
+  <meta charset="UTF-8" />
+  <title>Canvas Test</title></head>
+<body>
+  <section>
+    <div>
+      <canvas id="canvas" width="400" height="300">
+        This text is displayed if your browser does not support HTML5 Canvas.
+      </canvas>
+    </div>
+
+    <script type="text/javascript">
+      var canvas;
+      var ctx;
+
+       // alueen mitat
+      var x = 400;
+      var y = 300;
+      var dx = 2;
+      var dy = 4;
+      var WIDTH = 400;
+      var HEIGHT = 300;
+
+       //piirrä ympyrä
+      function circle(x, y, r) {
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2, true);
+        ctx.fill();
+      }
+
+       // piirrä suorakaide
+      function rect(x, y, w, h) {
+        ctx.beginPath();
+        ctx.rect(x, y, w, h);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+       //tyhjentää suorakaiteen
+      function clear() {
+        ctx.clearRect(0, 0, WIDTH, HEIGHT);
+      }
+
+      function init() {
+        canvas = document.getElementById("canvas"); //hae canvas-elementti
+        ctx = canvas.getContext("2d"); //hae sisältÃ¶
+        return setInterval(draw, 10); //10ms välein piirto
+      }
+
+
+      function draw() {
+        clear(); //tyhjennä ensin joka piirrolla
+        ctx.fillStyle = "grey"; //aseta suorakaiteen väri
+        rect(0, 0, WIDTH, HEIGHT); //piirrä suorakaide
+        ctx.fillStyle = "blue"; //aseta ympyrän väri
+        circle(x, y, 10); //piirrä ympyrä
+
+        //jos ympyrä tÃ¶rmää reunaan, niin vaihda suuntaa
+        if (x + dx > WIDTH || x + dx < 0)
+          dx = -dx;
+        if (y + dy > HEIGHT || y + dy < 0)
+          dy = -dy;
+
+        //anna ympyrälle uusi paikka
+        x += dx;
+        y += dy;
+      }
+
+      init();
+    </script>
+
+  </section>
+</body>
+
+</html>
