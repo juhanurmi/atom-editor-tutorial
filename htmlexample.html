@@ -1,7 +1,11 @@
 <!doctype html>
-<html><head>
+<html>
+
+<head>
   <meta charset="UTF-8" />
-  <title>Canvas Test</title></head>
+  <title>Canvas Test</title>
+</head>
+
 <body>
   <section>
     <div>
@@ -44,7 +48,7 @@
 
       function init() {
         canvas = document.getElementById("canvas"); //hae canvas-elementti
-        ctx = canvas.getContext("2d"); //hae sisältÃ¶
+        ctx = canvas.getContext("2d"); //hae sisältö
         return setInterval(draw, 10); //10ms välein piirto
       }
 
@@ -56,7 +60,7 @@
         ctx.fillStyle = "blue"; //aseta ympyrän väri
         circle(x, y, 10); //piirrä ympyrä
 
-        //jos ympyrä tÃ¶rmää reunaan, niin vaihda suuntaa
+        //jos ympyrä törmää reunaan, niin vaihda suuntaa
         if (x + dx > WIDTH || x + dx < 0)
           dx = -dx;
         if (y + dy > HEIGHT || y + dy < 0)
